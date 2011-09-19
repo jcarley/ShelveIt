@@ -11,20 +11,21 @@
 
 		<%= render 'layouts/header' %>
 		
-		<section>
-			<% flash.each do |key, value| %>
-				<div class="flash <%= key %>"><%= value %></div>
-			<% end %>
-			
-			<div class="span-5 border">
-				<%= render 'layouts/menu' %>
-			</div>
-			
-			<div class="span-19 last">
-				<%= yield %>
-			</div>
-			
-		</section>
+		<hr />
+		
+		<% flash.each do |key, value| %>
+			<div class="flash <%= key %>"><%= value %></div>
+		<% end %>
+		
+		<div class="span-5 colborder">
+			<%= render 'layouts/menu' %>
+		</div>
+		
+		<div class="span-17 last">
+			<%= yield %>
+		</div>
+		
+		<hr />
 		
 		<%= render 'layouts/footer' %>
 		
