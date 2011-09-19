@@ -3,6 +3,7 @@ class BookmarksController < ApplicationController
   end
 
   def add
+    @mark = EarMark.new
   end
 
 end
