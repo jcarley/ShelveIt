@@ -11,3 +11,4 @@ doc/app
 .DS_Store
 .idea/*
 .idea/**/*
+Gemfile.lock
