@@ -1,0 +1,26 @@
+
+<table class="table">
+	<tbody>
+		<tr>
+			<th>Name</th>
+			<th>Url</th>
+		</tr>
+		
+		<% if @marks.empty? %>
+			<tr>
+				<td colspan="2">No bookmarks to display</td>
+			</tr>
+		<% end %>
+		
+		<% @marks.each do |mark| %>
+			<tr>
+				<td>
+					<%= mark.name %>
+				</td>
+				<td>
+					<%= mark.url %>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

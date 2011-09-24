@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(:version => 20110919002954) do
 
-  create_table "ear_marks", :force => true do |t|
+  create_table "bookmarks", :force => true do |t|
     t.string   "url"
     t.string   "name"
     t.datetime "date_saved"

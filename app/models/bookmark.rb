@@ -1,20 +1,24 @@
-class EarMark < ActiveRecord::Base
-  attr_accessible :url, :name, :date_saved
+class Bookmark < ActiveRecord::Base
+  attr_accessible :name, :url, :date_saved
   
   url_regex = /(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&amp;:\/~\+#]*[\w\-\@?^=%&amp;\/~\+#])?/i
-  
+              
   validates :url, :presence => true,
                   :length => { :minimum => 10 },
                   :format => { :with => url_regex }
                   
   validates :name, :presence => true,
                    :length => { :maximum => 100 }
+                   
+  def initialized
+    @date_saved = DateTime.now
+  end
   
 end
 
 # == Schema Information
 #
-# Table name: ear_marks
+# Table name: bookmarks
 #
 #  id         :integer         not null, primary key
 #  url        :string(255)

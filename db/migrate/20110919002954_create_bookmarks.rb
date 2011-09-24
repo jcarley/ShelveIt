@@ -1,6 +1,6 @@
-class CreateEarMarks < ActiveRecord::Migration
+class CreateBookmarks < ActiveRecord::Migration
   def self.up
-    create_table :ear_marks do |t|
+    create_table :bookmarks do |t|
       t.string :url
       t.string :name
       t.datetime :date_saved
@@ -10,6 +10,6 @@ class CreateEarMarks < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :ear_marks
+    drop_table :bookmarks
   end
 end

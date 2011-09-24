@@ -1,6 +1,7 @@
 Shelveit::Application.routes.draw do
 
-  root :to => "bookmarks#home"
-  get "bookmarks/add"
-
+  root :to => "bookmarks#index"
+  
+  resources :bookmarks
+  
 end
