@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111011014120) do
+ActiveRecord::Schema.define(:version => 20111018151850) do
 
   create_table "bookmarks", :force => true do |t|
     t.string   "url"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20111011014120) do
     t.string   "encrypted_password"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "salt"
   end
 
 end
