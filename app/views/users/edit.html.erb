@@ -1,11 +1,11 @@
 <div id="box">
       
     <div class="block" id="block-signup">
-      <h2>Sign up</h2>
+      <h2>Edit up</h2>
     
       <div class="content">
       
-        <%= form_for @user, :url => users_path, :html => { :class => "form" } do |f| %>
+        <%= form_for @user, :url => user_path(@user), :html => { :class => "form" } do |f| %>
 
           <%= render @user, :f => f %>
 
@@ -13,10 +13,10 @@
 
             <button class="button" type="submit">
               <%= image_tag "web-app-theme/icons/tick.png" %>
-              Signup
+              Update
             </button>
 
-            <%= link_to "Cancel", root_path, :class => "text_button_padding link_button" %>
+            <%= link_to "Cancel", user_path(@user), :class => "text_button_padding link_button" %>
 
           </div>
 

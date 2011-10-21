@@ -1,0 +1,35 @@
+
+<div class="block" id="block-text">
+
+  <div class="content">
+    
+    <h2 class="title"><%= @user.realname %></h2>
+
+    <div class="inner">
+      
+      <div class="group">
+        
+        <p>
+          <label class="label">Username:</label>
+          <%= @user.username %>
+        </p>
+
+        <p>
+          <label class="label">Email:</label>
+          <%= @user.email %>
+        </p>
+          
+      </div>
+      
+      <div class="group navform wat-cf">
+        
+          <%= link_to "Ok", root_path, :class => "text_button_padding link_button" %>
+          <%= link_to "Edit Profile", edit_user_path(@user), :class => "text_button_padding link_button" %>
+    
+      </div>
+      
+    </div>
+    
+  </div>
+  
+</div>

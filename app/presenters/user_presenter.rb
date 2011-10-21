@@ -1,4 +1,4 @@
-class LoginPresenter < PresenterBase
+class UserPresenter < PresenterBase
     
     def user
       @user ||= User.new

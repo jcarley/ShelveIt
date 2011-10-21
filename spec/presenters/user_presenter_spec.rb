@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe LoginPresenter do
+describe UserPresenter do
   
   before(:each) do
     @attr = {
@@ -13,7 +13,7 @@ describe LoginPresenter do
   end
   
   it "should have a user attribute" do
-    login_presenter = LoginPresenter.new
+    login_presenter = UserPresenter.new
     login_presenter.should respond_to(:user)
   end
   
@@ -24,17 +24,17 @@ describe LoginPresenter do
     end
     
     it "should exist" do
-      login_presenter = LoginPresenter.new
+      login_presenter = UserPresenter.new
       login_presenter.should respond_to(:authenticate)
     end
     
     it "should return false on failed login attempts" do
-      login_presenter = LoginPresenter.new :user_username => "jcarley", :user_password => "secret_password"
+      login_presenter = UserPresenter.new :user_username => "jcarley", :user_password => "secret_password"
       login_presenter.authenticate.should be_false
     end
     
     it "should return true on successful login attempts" do
-      login_presenter = LoginPresenter.new :user_username => "jcarley", :user_password => "secret_password123"
+      login_presenter = UserPresenter.new :user_username => "jcarley", :user_password => "secret_password123"
       login_presenter.authenticate.should be_true
     end
     
