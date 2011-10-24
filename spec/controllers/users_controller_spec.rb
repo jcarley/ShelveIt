@@ -23,11 +23,4 @@ describe UsersController do
     end
   end
 
-  # describe "GET 'login'" do
-  #     it "should be successful" do
-  #       post 'login'
-  #       response.should be_success
-  #     end
-  #   end
-
 end

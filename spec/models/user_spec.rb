@@ -16,6 +16,13 @@ describe User do
     User.create!(@attr)
   end
   
+  it "should edit an existing user" do
+    user = User.create!(@attr)
+    user.update_attributes(@attr.merge(:realname => "James Jones"))
+    user.reload
+    user.realname.should == "James Jones"
+  end
+  
   it "should require a username" do
     no_username_user = User.new(@attr.merge(:username => ""))
     no_username_user.should_not be_valid
