@@ -6,7 +6,7 @@ gem 'sqlite3'
 gem 'jquery-rails'
 
 group :development, :test do
-  gem 'grp', '~> 0.4.1'
+  gem 'grb', '~> 0.4.1'
   gem 'fuubar'
   gem 'mongrel', '~> 1.2.0.pre2'
   gem 'rspec', '2.5.0'
