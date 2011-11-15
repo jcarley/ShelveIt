@@ -5,11 +5,11 @@
   <% if signed_in? %>
     <li><%= link_to "Signout", signout_path %></li>
     <li><%= link_to "Settings", user_path( current_user ) %></li>
+    <li><%= link_to "Help", "#" %></li>
+    <li>
+      <% form_tag '#', :method => :post do %>
+        <%= text_field_tag :search  %><button id="submit" type="submit">Search</button>
+      <% end %>
+    </li>
   <% end %>
-  <li><%= link_to "Help", "#" %></li>
-  <li>
-    <% form_tag '#', :method => :post do %>
-      <%= text_field_tag :search  %><button id="submit" type="submit">Search</button>
-    <% end %>
-  </li>
 </ul>
