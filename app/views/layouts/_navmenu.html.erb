@@ -1,3 +1,5 @@
 <ul class="wat-cf">
-  <li><%= link_to "Add Bookmark", :new_bookmark %></li>
+  <% if signed_in? %>
+    <li><%= link_to "Add Bookmark", :new_bookmark %></li>
+  <% end %>
 </ul>

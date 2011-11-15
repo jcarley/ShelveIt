@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   # TODO: Shows the users bookmarks
   def index
+    #@bookmarks = Bookmark.paginate(:page => params[:page])
   end
  
   # Shows profile information for user

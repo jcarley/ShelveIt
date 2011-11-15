@@ -1,8 +1,36 @@
 
-<div id="box">
-  <div class="block" id="block">
-    <div class="content">
-      This will be the list of bookmarks for the user
+<div class="block" id="block-tables">
+  <div class="content">
+
+    <div class="inner">
+
+      <h2 class="title">Bookmarks</h2>
+      
+      <div class="actions-bar wat-cf">
+        <div class="pagination">
+          <%= will_paginate %>
+        </div>
+      </div>
+
+      <table class="table">
+        <tbody>
+          <tr>
+            <th>Name</th>
+            <th class="last"></th>
+          </tr>
+          <tr>
+            <% render @bookmarks %>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="actions-bar wat-cf">
+        <div class="pagination">
+          <%= will_paginate %>
+        </div>
+      </div>
+
     </div>
+  
   </div>
 </div>

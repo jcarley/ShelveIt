@@ -1,7 +1,7 @@
 class BookmarksController < ApplicationController
 
   def index
-    @marks = Bookmark.all
+    @bookmarks = Bookmark.paginate :page => params[:page]
   end
 
   def new

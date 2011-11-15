@@ -1,26 +1,37 @@
 
-<table class="table">
-  <tbody>
-    <tr>
-      <th>Name</th>
-      <th>Url</th>
-    </tr>
-    
-    <% if @marks.empty? %>
-      <tr>
-        <td colspan="2">No bookmarks to display</td>
-      </tr>
-    <% end %>
-    
-    <% @marks.each do |mark| %>
-      <tr>
-        <td>
-          <%= mark.name %>
-        </td>
-        <td>
-          <%= mark.url %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="block" id="block-tables">
+  <div class="content">
+
+    <div class="inner">
+
+      <h2 class="title">Bookmarks</h2>
+      
+      <div class="actions-bar wat-cf">
+        <div class="pagination">
+          <%= will_paginate %>
+        </div>
+      </div>
+
+      <table class="table">
+        <tbody>
+          <tr>
+            <th>Name</th>
+            <th class="last"></th>
+          </tr>
+          <tr>
+            <%= render @bookmarks %>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="actions-bar wat-cf">
+        <div class="pagination">
+          <%= will_paginate %>
+        </div>
+      </div>
+
+    </div>
+  
+  </div>
+</div>
+
