@@ -1,6 +1,8 @@
 class Bookmark < ActiveRecord::Base
-  attr_accessible :name, :url, :date_saved
-  
+  attr_accessible :user_id, :name, :url
+
+  belongs_to :user
+
   url_regex = /(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&amp;:\/~\+#]*[\w\-\@?^=%&amp;\/~\+#])?/i
               
   validates :url, :presence => true,
@@ -16,6 +18,7 @@ class Bookmark < ActiveRecord::Base
   
 end
 
+
 # == Schema Information
 #
 # Table name: bookmarks
@@ -26,5 +29,6 @@ end
 #  date_saved :datetime
 #  created_at :datetime
 #  updated_at :datetime
+#  user_id    :integer
 #
 

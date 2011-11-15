@@ -50,6 +50,15 @@ module SessionsHelper
     session[:return_to] = nil
   end
 
+  def authenticate
+    deny_access unless signed_in?
+  end
+
+  #def correct_user
+    #@user = User.find params[:id]
+    #redirect_to(root_path) unless current_user?(@user) 
+  #end
+
   private
 
   def user_from_remember_token

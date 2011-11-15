@@ -46,6 +46,7 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: bookmarks
@@ -56,5 +57,6 @@ end
 #  date_saved :datetime
 #  created_at :datetime
 #  updated_at :datetime
+#  user_id    :integer
 #
 

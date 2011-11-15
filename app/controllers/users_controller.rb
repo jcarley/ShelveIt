@@ -18,7 +18,7 @@ class UsersController < ApplicationController
       flash[:notice] = "User #{@user.realname} was successfully created."
       redirect_to @user
     else
-      flash[:error] = "Correct the errors below and try again"
+      flash.now[:error] = "Correct the errors below and try again"
       render :action => "new"
     end
   end
@@ -44,16 +44,5 @@ class UsersController < ApplicationController
       render :action => "edit"
     end
   end
-
-  private
-
-  def authenticate
-    deny_access unless signed_in?
-  end
-
-  #def correct_user
-    #@user = User.find params[:id]
-    #redirect_to(root_path) unless current_user?(@user) 
-  #end
 
 end
