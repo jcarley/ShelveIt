@@ -1,12 +1,13 @@
 Shelveit::Application.routes.draw do
-
+  
   root :to => "users#index"
 
   resources :bookmarks
   resources :users
+  resources :sessions, :only => [:new, :create, :destroy]
 
   match "/signup", :to => "users#new"
-  
-  match "/login", :to => "users#login", :as => "login_users"
-    
+  match "/signin", :to => "sessions#new"
+  match "/signout", :to => "sessions#destroy"
+
 end

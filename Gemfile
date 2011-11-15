@@ -19,7 +19,6 @@ group :development, :test do
   gem 'factory_girl_rails', '1.0.1'
   gem 'annotate', "~> 2.4.0"
   gem 'web-app-theme', '>= 0.6.2'
-  gem 'pry', '>= 0.9.6.2'
 end
 
 group :test do

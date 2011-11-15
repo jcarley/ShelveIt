@@ -1,9 +1,12 @@
 class UsersController < ApplicationController
 
+  before_filter :authenticate, :only => [:index, :show, :edit, :update]
+
+  # TODO: Shows the users bookmarks
   def index
-    @user = User.new
   end
-  
+ 
+  # Shows profile information for user
   def show
     @user = User.find params[:id]
   end
@@ -22,11 +25,13 @@ class UsersController < ApplicationController
   def new
     @user = User.new
   end
-  
+ 
+  # Gets user profile information
   def edit
     @user = User.find(params[:id])
   end
-  
+ 
+  # Updates user profile information
   def update
     @user = User.find(params[:id])
     
@@ -34,22 +39,20 @@ class UsersController < ApplicationController
       flash[:notice] = "User #{@user.realname} was successfully updated."
       redirect_to @user
     else
-      flash[:error] = "Updating user #{@user.realname} failed."
+      flash.now[:error] = "Updating user #{@user.realname} failed."
       render :action => "edit"
     end
   end
 
-  def login
-    @user = User.authenticate params[:user][:username], params[:user][:password]
-    
-    if @user.nil?
-      @user = User.new
-      flash[:error] = "Invalid login and password combination"
-      render :action => "index"
-    else
-      redirect_to @user
-    end
-    
+  private
+
+  def authenticate
+    deny_access unless signed_in?
   end
+
+  #def correct_user
+    #@user = User.find params[:id]
+    #redirect_to(root_path) unless current_user?(@user) 
+  #end
 
 end
