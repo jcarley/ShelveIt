@@ -11,6 +11,12 @@ group :development, :test do
   gem 'mongrel', '~> 1.2.0.pre2'
   gem 'rspec', '2.5.0'
   gem 'rspec-rails', '2.5.0'
+  gem 'autotest', '4.4.6'
+  gem 'autotest-fsevent', '0.2.5'
+  gem 'autotest-growl', '0.2.9'
+  gem 'autotest-rails-pure', '4.1.2'
+  gem 'webrat'
+  gem 'factory_girl_rails', '1.0.1'
   gem 'annotate', "~> 2.4.0"
   gem 'web-app-theme', '>= 0.6.2'
   gem 'pry', '>= 0.9.6.2'
