@@ -16,8 +16,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new params[:user]
     if @user.save
+      sign_in @user
       flash[:notice] = "User #{@user.realname} was successfully created."
-      redirect_to @user
+      redirect_to bookmarks_path
     else
       flash.now[:error] = "Correct the errors below and try again"
       render :action => "new"
