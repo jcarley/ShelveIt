@@ -3,11 +3,6 @@ class UsersController < ApplicationController
   before_filter :authenticate, :only => [:index, :show, :edit, :update]
   before_filter :correct_user, :only => [:show, :edit, :update]
 
-  # TODO: Shows the users bookmarks
-  def index
-    #@bookmarks = Bookmark.paginate(:page => params[:page])
-  end
- 
   # Shows profile information for user
   def show
     @user = User.find params[:id]

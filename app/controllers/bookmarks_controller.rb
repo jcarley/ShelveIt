@@ -1,6 +1,6 @@
 class BookmarksController < ApplicationController
   
-  before_filter :authenticate, :only => [:index, :show, :edit, :update]
+  before_filter :authenticate, :only => [:index, :new, :create, :destroy]
 
   def index
     @bookmarks = current_user.bookmarks.paginate :page => params[:page]
