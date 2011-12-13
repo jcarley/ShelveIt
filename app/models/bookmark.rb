@@ -1,7 +1,8 @@
 class Bookmark < ActiveRecord::Base
   attr_accessible :user_id, :name, :url
 
-  belongs_to :user
+  has_many :links
+  has_many :users, :through => :links
 
   url_regex = /(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&amp;:\/~\+#]*[\w\-\@?^=%&amp;\/~\+#])?/i
               
@@ -12,10 +13,9 @@ class Bookmark < ActiveRecord::Base
   validates :name, :presence => true,
                    :length => { :maximum => 100 }
                    
-  def initialized
-    @date_saved = DateTime.now
+  def liked_count
+    Bookmark.where("url = '#{url}'").count
   end
-  
 end
 
 
@@ -26,7 +26,6 @@ end
 #  id         :integer         not null, primary key
 #  url        :string(255)
 #  name       :string(255)
-#  date_saved :datetime
 #  created_at :datetime
 #  updated_at :datetime
 #  user_id    :integer

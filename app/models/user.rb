@@ -2,7 +2,8 @@ class User < ActiveRecord::Base
   attr_accessor   :password
   attr_accessible :username, :realname, :email, :password, :password_confirmation, :encrypted_password
 
-  has_many :bookmarks
+  has_many :links
+  has_many :bookmarks, :through => :links
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
@@ -23,6 +24,14 @@ class User < ActiveRecord::Base
 
   before_save :encrypt_password
   
+  def link_to(bookmark)
+    return false unless bookmark.valid?
+
+    link = links.create!
+    link.bookmark = bookmark
+    link.save
+  end
+
   def has_password?(submitted_password)
     encrypted_password == encrypt(submitted_password)
   end
