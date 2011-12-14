@@ -2,8 +2,7 @@ class User < ActiveRecord::Base
   attr_accessor   :password
   attr_accessible :username, :realname, :email, :password, :password_confirmation, :encrypted_password
 
-  has_many :links
-  has_many :bookmarks, :through => :links
+  has_many :bookmarks
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
@@ -24,12 +23,12 @@ class User < ActiveRecord::Base
 
   before_save :encrypt_password
   
+  scope :who_is_linked_to, lambda { |url| users_linked_to_url(url) }
+  
   def link_to(bookmark)
     return false unless bookmark.valid?
 
-    link = links.create!
-    link.bookmark = bookmark
-    link.save
+    bookmarks << bookmark
   end
 
   def has_password?(submitted_password)
@@ -49,6 +48,11 @@ class User < ActiveRecord::Base
   
   private
   
+    def self.users_linked_to_url(url) 
+      sql = %(id In (Select user_id From bookmarks Where url = '#{url}'))
+      where(sql, :url => url)
+    end
+
     def encrypt_password
       self.salt = make_salt if new_record?
       self.encrypted_password = encrypt password

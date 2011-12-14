@@ -13,7 +13,9 @@ class BookmarksController < ApplicationController
   def create
     @mark = Bookmark.new(params[:bookmark])
 
-    if current_user.link_to( @mark )
+    current_user.link_to( @mark )
+
+    if @mark.save
       flash[:notice] = "Bookmark added successfully."
       redirect_to :action => 'index'
     else
