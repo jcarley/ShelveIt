@@ -4,11 +4,11 @@ gem 'rails', '3.0.10'
 gem 'sqlite3'
 gem 'jquery-rails'
 gem 'will_paginate', '~> 3.0.2'
+gem 'faker', '~> 1.0.1'
 
 group :development, :test do
   gem 'pry'
   gem 'pry-doc'
-  gem 'faker', '~> 1.0.1'
   gem 'grb', '~> 0.4.1'
   gem 'fuubar'
   gem 'mongrel', '~> 1.2.0.pre2'
