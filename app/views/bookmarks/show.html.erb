@@ -1,0 +1,38 @@
+
+<div class="block" id="block-tables">
+  <div class="content">
+
+    <div class="inner">
+
+      <h2 class="title"><%= @bookmark.name %></h2>
+      
+      <div class="actions-bar wat-cf">
+        <div class="pagination">
+          <%= will_paginate @users %>
+        </div>
+      </div>
+
+      <table class="table">
+        <tbody>
+          <tr>
+            <th class="last">Name</th>
+          </tr>
+          <%= render :partial => 'user', :collection => @users %>
+        </tbody>
+      </table>
+
+      <div class="actions-bar wat-cf">
+        <div class="pagination">
+          <%= will_paginate @users %>
+        </div>
+      </div>
+
+      <div class="wat-cf">
+        <%= link_to "Back", root_path %>
+      </div>
+
+    </div>
+  
+  </div>
+</div>
+

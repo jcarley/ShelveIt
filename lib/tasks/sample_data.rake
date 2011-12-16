@@ -12,6 +12,19 @@ namespace :db do
 
   def make_users
 
+    realname = "Jefferson Carley"
+    username = "jcarley"
+    email = "jeff.carley@gmail.com"
+    password = "password"
+
+    user = User.create! :username => username,
+                        :realname => realname,
+                        :email    => email,
+                        :password => password,
+                        :password_confirmation => password
+
+    make_bookmarks user
+
     15.times do |n|
       realname = Faker::Name.name
       username = Faker::Internet.user_name(realname)

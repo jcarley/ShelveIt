@@ -1,5 +1,8 @@
 <tr>
-  <td><%= link_to bookmark.name, bookmark.url %></td>
+  <td>
+    <%= link_to bookmark.name, bookmark.url %>
+    <%= link_to "(#{bookmark.liked_count})", bookmark_path( bookmark ) %>
+  </td> 
   <td class="last"><%= link_to "delete", bookmark, :method => :delete, :confirm => "You sure?",
                                                    :title => "Delete #{bookmark.name}" %></td>
 </tr>

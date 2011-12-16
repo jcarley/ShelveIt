@@ -6,6 +6,11 @@ class BookmarksController < ApplicationController
     @bookmarks = current_user.bookmarks.paginate :page => params[:page]
   end
 
+  def show
+    @bookmark = Bookmark.find_by_id params[:id]
+    @users = User.who_is_linked_to( @bookmark.url ).paginate :page => params[:page], :per_page => 10
+  end
+
   def new
     @mark = Bookmark.new
   end
