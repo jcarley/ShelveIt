@@ -5,6 +5,8 @@ gem 'sqlite3'
 gem 'jquery-rails'
 gem 'will_paginate', '~> 3.0.2'
 gem 'faker', '~> 1.0.1'
+gem 'paperclip'
+gem 'aws-s3'
 
 group :development, :test do
   gem 'pry'
