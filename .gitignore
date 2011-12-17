@@ -12,3 +12,4 @@ doc/app
 .idea/*
 .idea/**/*
 Gemfile.lock
+*.sh

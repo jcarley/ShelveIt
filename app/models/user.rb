@@ -1,8 +1,15 @@
 class User < ActiveRecord::Base
   attr_accessor   :password
-  attr_accessible :username, :realname, :email, :password, :password_confirmation, :encrypted_password
+  attr_accessible :username, :realname, :email, :password, :password_confirmation, :encrypted_password, :avatar
 
   has_many :bookmarks
+  has_attached_file :avatar,
+    :storage => :s3,
+    :bucket => 'FinishFirstSoftware_RailsClass_ShelveIt',
+    :s3_credentials => {
+      :access_key_id => ENV['S3_KEY'],
+      :secret_access_key => ENV['S3_SECRET']
+    }
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
@@ -73,17 +80,22 @@ class User < ActiveRecord::Base
 end
 
 
+
 # == Schema Information
 #
 # Table name: users
 #
-#  id                 :integer         not null, primary key
-#  username           :string(255)
-#  realname           :string(255)
-#  email              :string(255)
-#  encrypted_password :string(255)
-#  created_at         :datetime
-#  updated_at         :datetime
-#  salt               :string(255)
+#  id                  :integer         not null, primary key
+#  username            :string(255)
+#  realname            :string(255)
+#  email               :string(255)
+#  encrypted_password  :string(255)
+#  created_at          :datetime
+#  updated_at          :datetime
+#  salt                :string(255)
+#  avatar_file_name    :string(255)
+#  avatar_content_type :string(255)
+#  avatar_file_size    :integer
+#  avatar_updated_at   :datetime
 #
 

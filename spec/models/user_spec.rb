@@ -193,17 +193,22 @@ describe User do
 end
 
 
+
 # == Schema Information
 #
 # Table name: users
 #
-#  id                 :integer         not null, primary key
-#  username           :string(255)
-#  realname           :string(255)
-#  email              :string(255)
-#  encrypted_password :string(255)
-#  created_at         :datetime
-#  updated_at         :datetime
-#  salt               :string(255)
+#  id                  :integer         not null, primary key
+#  username            :string(255)
+#  realname            :string(255)
+#  email               :string(255)
+#  encrypted_password  :string(255)
+#  created_at          :datetime
+#  updated_at          :datetime
+#  salt                :string(255)
+#  avatar_file_name    :string(255)
+#  avatar_content_type :string(255)
+#  avatar_file_size    :integer
+#  avatar_updated_at   :datetime
 #
 
